@@ -1,28 +1,29 @@
 <!doctype html>
 <html lang="id">
- <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="Daftar peralatan SIPERALAB">
- <title>SIPERALAB | Peralatan</title>
- <link rel="stylesheet" href="/src/styles.css">
- </head>
- <body>
- <header class="site-header">
- <a class="brand" href="/">SIPERALAB</a>
- <nav aria-label="Navigasi utama">
- <a href="/">Beranda</a>
- <a href="/peralatan.html">Peralatan</a>
- <a href="/peminjaman.html">Ajukan Peminjaman</a>
- </nav>
- </header>
- 
- <main>
- <h1>Katalog Peralatan</h1>
- <section aria-labelledby="judul-katalog">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daftar peralatan SIPERALAB">
+  <title>SIPERALAB | Peralatan</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">SIPERALAB</a>
+    <nav aria-label="Navigasi utama">
+      <a href="/">Beranda</a>
+      <a href="/peralatan.html">Peralatan</a>
+      <a href="/peminjaman.html">Ajukan Peminjaman</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Katalog Peralatan</h1>
+    <section aria-labelledby="judul-katalog">
       <h2 id="judul-katalog">Peralatan yang dapat dipinjam</h2>
+      
       <!-- Article 1 -->
-      <article>
+      <article class="equipment-card">
         <h3>Multimeter Digital</h3>
         <figure>
           <img src="/images/multimeter.svg" alt="Multimeter digital untuk pengukuran listrik" width="320">
@@ -33,7 +34,7 @@
       </article>
 
       <!-- Article 2 -->
-      <article>
+      <article class="equipment-card">
         <h3>Router</h3>
         <figure>
           <img src="/images/router.svg" alt="Router jaringan untuk praktikum konfigurasi jaringan" width="320">
@@ -44,7 +45,7 @@
       </article>
 
       <!-- Article 3 -->
-      <article>
+      <article class="equipment-card">
         <h3>Kamera</h3>
         <figure>
           <img src="/images/kamera.svg" alt="Kamera digital untuk dokumentasi kegiatan laboratorium" width="320">
@@ -56,10 +57,10 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <p><a href="/peminjaman.html">Lanjut ke formulir peminjaman</a></p>
   </footer>
 
   <script type="module" src="/src/main.js"></script>
- </body>
+</body>
 </html>
