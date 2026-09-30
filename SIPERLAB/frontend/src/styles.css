@@ -10,7 +10,13 @@
   --color-border: #cbd5e1;
   --color-text: #1f2937;
   --radius: 0.75rem;
-  --space: 1rem;
+
+  /* Variabel space diperbaiki agar gap & padding berfungsi */
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+
   font-family: system-ui, sans-serif;
   line-height: 1.5;
 }
@@ -26,8 +32,14 @@ main, .site-header, .site-footer {
   margin-inline: auto;
 }
 
+/* Header & Navigasi (Flexbox) */
 .site-header {
-  padding-block: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-block: var(--space-3);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -37,9 +49,34 @@ main, .site-header, .site-footer {
   text-decoration: none;
 }
 
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
 nav a {
   color: var(--color-primary);
-  margin-right: 1rem;
+  text-decoration: none;
+}
+
+/* Hero Section (Mobile-first: Vertikal) */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Katalog Peralatan (CSS Grid Auto-fit) */
+.equipment-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-4);
 }
 
 .equipment-card {
@@ -50,9 +87,18 @@ nav a {
   margin-block: 1rem;
 }
 
-.equipment-card img, img {
-  max-width: 100%;
-  height: auto;
+.equipment-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* Form Peminjaman (Default 1 Kolom) */
+.form-grid {
+  display: grid;
+  gap: var(--space-4);
 }
 
 fieldset {
@@ -76,12 +122,48 @@ input, select, textarea {
   font: inherit;
 }
 
+.hint {
+  margin-top: 0.25rem;
+  color: #475569;
+}
+
+/* Tombol Form */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.form-actions > * {
+  flex: 1 1 10rem;
+}
+
+/* Safe Media & Focus State */
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 input:focus, select:focus, textarea:focus, button:focus, a:focus {
   outline: 3px solid #93c5fd;
   outline-offset: 2px;
 }
 
-.hint {
-  margin-top: 0.25rem;
-  color: #475569;
+/* Media Query Gabungan (Ubah Hero & Form jadi 2 kolom di layar >= 768px) */
+@media (min-width: 48rem) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .hero__content,
+  .hero__media {
+    flex: 1 1 0;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
